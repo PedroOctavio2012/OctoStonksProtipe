@@ -1,0 +1,1348 @@
+/* =========================================
+   OCTO STONKS
+   Simulador Financeiro Acadêmico
+========================================= */
+
+
+/* =========================================
+   BASE
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --blue: #18a9df;
+    --deep-blue: #07548c;
+
+    --white: rgba(255, 255, 255, 0.84);
+
+    --text: #063c63;
+    --muted: #638398;
+
+    --green: #18a86b;
+    --red: #dc5960;
+
+    --shadow:
+        0 18px 45px
+        rgba(22, 125, 172, 0.16);
+
+}
+
+
+/* =========================
+   BASE
+========================= */
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+
+        radial-gradient(
+            circle at 15% 10%,
+            #ffffff 0%,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #c8f5ff,
+            #f4fdff 45%,
+            #bdefff
+        );
+
+    overflow-x: hidden;
+
+}
+
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 40%,
+            rgba(255,255,255,.45) 50%,
+            transparent 60%
+        );
+
+    opacity: .7;
+
+}
+
+
+/* =========================
+   FRUTIGER AERO
+========================= */
+
+.aero-glow {
+
+    position: fixed;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+
+    opacity: .35;
+
+    pointer-events: none;
+
+}
+
+
+.glow-one {
+
+    background: #54d9ff;
+
+    top: 8%;
+
+    right: -80px;
+
+}
+
+
+.glow-two {
+
+    background: #7be4bd;
+
+    bottom: -100px;
+
+    left: -80px;
+
+}
+
+
+/* =========================
+   GLASS
+========================= */
+
+.glass {
+
+    background: var(--white);
+
+    border:
+        1px solid
+        rgba(255,255,255,.95);
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: blur(18px);
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.topbar {
+
+    position: sticky;
+
+    top: 14px;
+
+    z-index: 10;
+
+    width:
+        min(
+            1180px,
+            calc(100% - 28px)
+        );
+
+    margin:
+        14px auto 0;
+
+    padding:
+        12px 18px;
+
+    border-radius: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.brand,
+.user-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.brand-orbit {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    color: white;
+
+    font-weight: 900;
+
+    font-size: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #21b7e8,
+            #0784c0
+        );
+
+    box-shadow:
+
+        inset
+        0 2px 5px
+        rgba(255,255,255,.7),
+
+        0 5px 12px
+        rgba(0,100,160,.2);
+
+}
+
+
+.brand strong {
+
+    display: block;
+
+    font-size: 19px;
+
+}
+
+
+.brand span,
+.user-area > span {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+}
+
+
+.user-area {
+
+    font-size: 12px;
+
+}
+
+
+.status-dot {
+
+    width: 8px;
+
+    height: 8px;
+
+    background: #31c97b;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px
+        #31c97b;
+
+}
+
+
+.avatar {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #a5edff,
+            #35bce5
+        );
+
+    border:
+        2px solid
+        rgba(255,255,255,.9);
+
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+
+    width:
+        min(
+            1180px,
+            calc(100% - 28px)
+        );
+
+    margin:
+        28px auto;
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    border-radius: 30px;
+
+    padding: 34px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr .8fr;
+
+    gap: 30px;
+
+}
+
+
+.eyebrow {
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: var(--blue);
+
+}
+
+
+h1 {
+
+    font-size:
+        clamp(
+            32px,
+            5vw,
+            54px
+        );
+
+    margin: 10px 0;
+
+}
+
+
+h2 {
+
+    margin:
+        4px 0 0;
+
+    font-size: 22px;
+
+}
+
+
+h3 {
+
+    margin:
+        4px 0 8px;
+
+}
+
+
+p {
+
+    color: var(--muted);
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.primary-btn {
+
+    border: 0;
+
+    cursor: pointer;
+
+    border-radius: 13px;
+
+    padding:
+        13px 19px;
+
+    font-weight: 800;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            180deg,
+            #22b9ea,
+            #078ac6
+        );
+
+    box-shadow:
+        0 7px 16px
+        rgba(8,137,197,.25);
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease;
+
+}
+
+
+.primary-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.primary-btn.reduced-active {
+
+    background:
+        linear-gradient(
+            180deg,
+            #19bd7a,
+            #07915c
+        );
+
+}
+
+
+/* =========================
+   BALANCE
+========================= */
+
+.balance-card {
+
+    align-self: center;
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #087fba,
+            #20bce9
+        );
+
+}
+
+
+.balance-card span,
+.balance-card small {
+
+    opacity: .85;
+
+}
+
+
+.balance-card strong {
+
+    display: block;
+
+    margin: 8px 0;
+
+    font-size: 35px;
+
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+
+    margin: 16px 0;
+
+}
+
+
+.stat {
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+}
+
+
+.stat span,
+.stat small {
+
+    display: block;
+
+    color: var(--muted);
+
+}
+
+
+.stat strong {
+
+    display: block;
+
+    margin: 8px 0;
+
+    font-size: 24px;
+
+}
+
+
+/* =========================
+   PANELS
+========================= */
+
+.content-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 16px;
+
+}
+
+
+.panel {
+
+    border-radius: 24px;
+
+    padding: 24px;
+
+}
+
+
+.panel-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =========================
+   TRANSAÇÕES
+========================= */
+
+.transaction {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 0;
+
+    border-bottom:
+        1px solid
+        rgba(60,140,175,.12);
+
+}
+
+
+.transaction:last-child {
+
+    border-bottom: 0;
+
+}
+
+
+.transaction-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: #e3f8ff;
+
+}
+
+
+.transaction-info {
+
+    flex: 1;
+
+}
+
+
+.transaction-info strong,
+.transaction-info small {
+
+    display: block;
+
+}
+
+
+.transaction-info small {
+
+    color: var(--muted);
+
+    margin-top: 2px;
+
+}
+
+
+.transaction-value {
+
+    font-weight: 900;
+
+}
+
+
+.negative {
+
+    color: var(--red);
+
+}
+
+
+.positive {
+
+    color: var(--green);
+
+}
+
+
+/* =========================
+   CATEGORIAS
+========================= */
+
+.category-list > div {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 13px 0;
+
+    border-bottom:
+        1px solid
+        rgba(60,140,175,.12);
+
+}
+
+
+.total-row {
+
+    font-weight: 900;
+
+}
+
+
+/* =========================
+   INSIGHT
+========================= */
+
+.tip {
+
+    margin-top: 18px;
+
+    padding: 13px;
+
+    display: flex;
+
+    gap: 10px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(225,249,255,.8);
+
+}
+
+
+.tip p {
+
+    margin: 0;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================
+   SIMULADOR
+========================= */
+
+.scenario {
+
+    margin-top: 16px;
+
+    border-radius: 24px;
+
+    padding: 24px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr 1fr .7fr;
+
+    gap: 25px;
+
+    align-items: center;
+
+}
+
+
+.scenario-controls {
+
+    display: grid;
+
+    gap: 8px;
+
+}
+
+
+.scenario-controls label {
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+}
+
+
+input[type="range"] {
+
+    width: 100%;
+
+    accent-color: var(--blue);
+
+}
+
+
+.scenario-result {
+
+    padding: 18px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255,255,255,.65);
+
+}
+
+
+.scenario-result span {
+
+    display: block;
+
+    color: var(--muted);
+
+}
+
+
+.scenario-result strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 26px;
+
+}
+
+
+/* =========================
+   CARTEIRA
+========================= */
+
+.portfolio {
+
+    margin-top: 16px;
+
+    border-radius: 28px;
+
+    padding: 26px;
+
+}
+
+
+.hidden {
+
+    display: none;
+
+}
+
+
+.portfolio-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+}
+
+
+.portfolio-heading p {
+
+    max-width: 760px;
+
+}
+
+
+.simulation-badge {
+
+    white-space: nowrap;
+
+    padding:
+        9px 13px;
+
+    border-radius: 999px;
+
+    color: #08794f;
+
+    background:
+        rgba(211,255,232,.9);
+
+    border:
+        1px solid
+        rgba(74,202,139,.35);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+}
+
+
+.market-strip {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 22px;
+
+}
+
+
+.market-strip > div {
+
+    padding: 15px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,.62);
+
+}
+
+
+.market-strip span,
+.market-strip small {
+
+    display: block;
+
+    color: var(--muted);
+
+}
+
+
+.market-strip strong {
+
+    display: block;
+
+    margin: 5px 0;
+
+    font-size: 22px;
+
+}
+
+
+/* =========================
+   PATRIMÔNIO
+========================= */
+
+.portfolio-summary {
+
+    margin-top: 16px;
+
+    padding: 20px;
+
+    border-radius: 22px;
+
+    display: grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap: 25px;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(221,250,255,.85),
+            rgba(244,255,252,.82)
+        );
+
+}
+
+
+.portfolio-total span,
+.portfolio-total small {
+
+    display: block;
+
+    color: var(--muted);
+
+}
+
+
+.portfolio-total strong {
+
+    display: block;
+
+    font-size: 32px;
+
+    margin: 5px 0;
+
+}
+
+
+.allocation-bar {
+
+    height: 20px;
+
+    display: flex;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background: #dceff5;
+
+}
+
+
+.allocation-bar span {
+
+    display: block;
+
+    height: 100%;
+
+}
+
+
+.alloc-cdb {
+
+    width: 50%;
+
+    background: #23a9dc;
+
+}
+
+
+.alloc-fii {
+
+    width: 35%;
+
+    background: #49c98a;
+
+}
+
+
+.alloc-reserve {
+
+    width: 15%;
+
+    background: #8bd8ed;
+
+}
+
+
+.legend {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 10px;
+
+    font-size: 11px;
+
+    color: var(--muted);
+
+}
+
+
+/* =========================
+   CARDS DE INVESTIMENTO
+========================= */
+
+.portfolio-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 12px;
+
+    margin-top: 16px;
+
+}
+
+
+.investment-card {
+
+    padding: 17px;
+
+    min-height: 190px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.68);
+
+    border:
+        1px solid
+        rgba(255,255,255,.95);
+
+}
+
+
+.investment-icon {
+
+    width: 40px;
+
+    height: 40px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 13px;
+
+    background: #e2f8ff;
+
+    font-size: 20px;
+
+}
+
+
+.investment-card h3 {
+
+    font-size: 16px;
+
+}
+
+
+.ticker {
+
+    color: var(--blue);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+}
+
+
+.allocation-number {
+
+    margin-top: 12px;
+
+    font-size: 24px;
+
+    font-weight: 900;
+
+}
+
+
+.investment-card small {
+
+    color: var(--muted);
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================
+   AVISOS
+========================= */
+
+.portfolio-note {
+
+    margin-top: 16px;
+
+    padding: 15px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255,248,211,.78);
+
+    color: #775c08;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+.ai-market {
+
+    margin-top: 16px;
+
+    display: flex;
+
+    gap: 15px;
+
+    align-items: flex-start;
+
+    padding: 18px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(239,251,255,.85),
+            rgba(237,255,246,.8)
+        );
+
+}
+
+
+.ai-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #20b8e8,
+            #15aa76
+        );
+
+}
+
+
+.ai-market p {
+
+    margin-bottom: 0;
+
+    font-size: 13px;
+
+}
+
+
+.source-note {
+
+    display: block;
+
+    margin-top: 13px;
+
+    color: var(--muted);
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    width:
+        min(
+            1180px,
+            calc(100% - 28px)
+        );
+
+    margin:
+        0 auto 30px;
+
+    padding: 10px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 980px) {
+
+    .portfolio-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .hero,
+    .content-grid,
+    .scenario,
+    .portfolio-summary {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .portfolio-heading {
+
+        flex-direction: column;
+
+    }
+
+
+    .market-strip {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .portfolio-grid,
+    .stats-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hero,
+    .panel,
+    .scenario,
+    .portfolio {
+
+        padding: 20px;
+
+    }
+
+
+    .user-area > span {
+
+        display: none;
+
+    }
+
+}
