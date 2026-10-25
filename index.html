@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Octo Stonks</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="aero-glow glow-one"></div>
+    <div class="aero-glow glow-two"></div>
+
+    <header class="topbar glass">
+      <div class="brand">
+        <div class="brand-orbit">O</div>
+        <div>
+          <strong>Octo Stonks</strong>
+          <span>Simulador financeiro</span>
+        </div>
+      </div>
+
+      <div class="user-area">
+        <span>Laura Oliveira</span>
+        <div class="status-dot"></div>
+        <div class="avatar">👩‍💼</div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="hero glass">
+        <div>
+          <div class="eyebrow">FINANÇAS PESSOAIS</div>
+          <h1>Organize sua vida financeira.</h1>
+          <h2>Controle gastos, compare cenários e planeje melhor.</h2>
+          <p id="description">
+            Organize seu dinheiro, acompanhe seus gastos e descubra como pequenas decisões podem mudar seu futuro financeiro.
+          </p>
+          <button id="toggleScenarioBtn" class="primary-btn" type="button">
+            ✨ Ver situação após os cortes
+          </button>
+        </div>
+
+        <aside class="balance-card">
+          <span>Saldo líquido</span>
+          <strong id="balance">+R$ 0,00</strong>
+          <small id="balanceStatus">Situação financeira positiva</small>
+        </aside>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat glass">
+          <span>Renda</span>
+          <strong id="income">R$ 900,00</strong>
+          <small>Receita mensal</small>
+        </article>
+
+        <article class="stat glass">
+          <span>Despesas</span>
+          <strong id="expenses">R$ 0,00</strong>
+          <small id="expenseStatus">Dentro da receita</small>
+        </article>
+
+        <article class="stat glass">
+          <span>Resultado</span>
+          <strong id="result">+R$ 0,00</strong>
+          <small>Saldo final</small>
+        </article>
+
+        <article class="stat glass">
+          <span>Economia</span>
+          <strong id="economy">R$ 0,00</strong>
+          <small>Reserva mensal</small>
+        </article>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel glass">
+          <div class="panel-heading">
+            <h3>Extrato</h3>
+          </div>
+          <div id="transactions"></div>
+        </section>
+
+        <section class="panel glass">
+          <div class="panel-heading">
+            <h3>Despesas por categoria</h3>
+          </div>
+          <div id="categories" class="category-list"></div>
+
+          <div class="tip" id="financialTip">
+            <strong>💡 Insight financeiro:</strong>
+            Laura está gastando mais do que recebe. É necessário reorganizar suas prioridades.
+          </div>
+        </section>
+      </div>
+
+      <section class="scenario glass">
+        <div class="scenario-controls">
+          <label for="savingRange">Aporte ou economia mensal</label>
+          <input id="savingRange" type="range" min="0" max="500" step="10" value="120" />
+        </div>
+
+        <div class="scenario-result">
+          <span>Valor selecionado</span>
+          <strong id="savingValue">R$ 120,00</strong>
+        </div>
+
+        <div class="scenario-result">
+          <span>Resultado</span>
+          <strong id="scenarioResult">+R$ 0,00</strong>
+        </div>
+      </section>
+
+      <section id="portfolioSection" class="portfolio glass hidden">
+        <div class="portfolio-heading">
+          <div>
+            <h3>Carteira fictícia</h3>
+            <p>
+              Uma simulação didática para mostrar como um planejamento financeiro mais equilibrado pode abrir espaço para investimentos e metas futuras.
+            </p>
+          </div>
+          <span class="simulation-badge">Simulação didática</span>
+        </div>
+
+        <div class="market-strip">
+          <div>
+            <span>Retorno</span>
+            <strong>+12,4%</strong>
+            <small>no período</small>
+          </div>
+          <div>
+            <span>Risco</span>
+            <strong>Moderado</strong>
+            <small>carteira equilibrada</small>
+          </div>
+          <div>
+            <span>Prazo</span>
+            <strong>12 meses</strong>
+            <small>horizonte</small>
+          </div>
+        </div>
+
+        <div class="portfolio-summary">
+          <div class="portfolio-total">
+            <span>Valor total investido</span>
+            <strong id="portfolioTotal">R$ 0,00</strong>
+            <small id="portfolioReturn">Crescimento simulado no período: +R$ 0,00</small>
+          </div>
+        </div>
+
+        <div id="portfolioCards"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
