@@ -1,157 +1,547 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Octo Stonks</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Octo Stonks | Simulador Financeiro</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
     <div class="aero-glow glow-one"></div>
     <div class="aero-glow glow-two"></div>
 
-    <header class="topbar glass">
-      <div class="brand">
-        <div class="brand-orbit">O</div>
-        <div>
-          <strong>Octo Stonks</strong>
-          <span>Simulador financeiro</span>
-        </div>
-      </div>
+    <!-- HEADER -->
 
-      <div class="user-area">
-        <span>Laura Oliveira</span>
-        <div class="status-dot"></div>
-        <div class="avatar">👩‍💼</div>
-      </div>
+    <header class="topbar glass">
+
+        <div class="brand">
+
+            <div class="brand-orbit">
+                O
+            </div>
+
+            <div>
+                <strong>Octo Stonks</strong>
+                <span>Financial Education Simulator</span>
+            </div>
+
+        </div>
+
+        <div class="user-area">
+
+            <span class="status-dot"></span>
+
+            <span>
+                Simulação acadêmica
+            </span>
+
+            <div class="avatar">
+                👩🏻‍💼
+            </div>
+
+        </div>
+
     </header>
 
+
     <main class="dashboard">
-      <section class="hero glass">
-        <div>
-          <div class="eyebrow">FINANÇAS PESSOAIS</div>
-          <h1>Organize sua vida financeira.</h1>
-          <h2>Controle gastos, compare cenários e planeje melhor.</h2>
-          <p id="description">
-            Organize seu dinheiro, acompanhe seus gastos e descubra como pequenas decisões podem mudar seu futuro financeiro.
-          </p>
-          <button id="toggleScenarioBtn" class="primary-btn" type="button">
-            ✨ Ver situação após os cortes
-          </button>
-        </div>
 
-        <aside class="balance-card">
-          <span>Saldo líquido</span>
-          <strong id="balance">+R$ 0,00</strong>
-          <small id="balanceStatus">Situação financeira positiva</small>
-        </aside>
-      </section>
+        <!-- HERO -->
 
-      <section class="stats-grid">
-        <article class="stat glass">
-          <span>Renda</span>
-          <strong id="income">R$ 900,00</strong>
-          <small>Receita mensal</small>
-        </article>
+        <section class="hero glass">
 
-        <article class="stat glass">
-          <span>Despesas</span>
-          <strong id="expenses">R$ 0,00</strong>
-          <small id="expenseStatus">Dentro da receita</small>
-        </article>
+            <div class="hero-copy">
 
-        <article class="stat glass">
-          <span>Resultado</span>
-          <strong id="result">+R$ 0,00</strong>
-          <small>Saldo final</small>
-        </article>
+                <span class="eyebrow">
+                    CONTA DIGITAL • LAURA
+                </span>
 
-        <article class="stat glass">
-          <span>Economia</span>
-          <strong id="economy">R$ 0,00</strong>
-          <small>Reserva mensal</small>
-        </article>
-      </section>
+                <h1>
+                    Olá, Laura! 👋
+                </h1>
 
-      <div class="content-grid">
-        <section class="panel glass">
-          <div class="panel-heading">
-            <h3>Extrato</h3>
-          </div>
-          <div id="transactions"></div>
+                <p id="description">
+                    Organize seu dinheiro, acompanhe seus gastos
+                    e descubra como pequenas decisões podem mudar
+                    seu futuro financeiro.
+                </p>
+
+                <button
+                    class="primary-btn"
+                    id="toggleScenarioBtn"
+                >
+                    ✨ Ver situação após os cortes
+                </button>
+
+            </div>
+
+
+            <div class="balance-card">
+
+                <span>
+                    Saldo mensal
+                </span>
+
+                <strong id="balance">
+                    −R$ 360,00
+                </strong>
+
+                <small id="balanceStatus">
+                    Despesas maiores que a receita
+                </small>
+
+            </div>
+
         </section>
 
-        <section class="panel glass">
-          <div class="panel-heading">
-            <h3>Despesas por categoria</h3>
-          </div>
-          <div id="categories" class="category-list"></div>
 
-          <div class="tip" id="financialTip">
-            <strong>💡 Insight financeiro:</strong>
-            Laura está gastando mais do que recebe. É necessário reorganizar suas prioridades.
-          </div>
+        <!-- ESTATÍSTICAS -->
+
+        <section class="stats-grid">
+
+            <article class="stat glass">
+
+                <span>
+                    Receita mensal
+                </span>
+
+                <strong id="income">
+                    R$ 900,00
+                </strong>
+
+                <small>
+                    Salário da Laura
+                </small>
+
+            </article>
+
+
+            <article class="stat glass">
+
+                <span>
+                    Despesas
+                </span>
+
+                <strong id="expenses">
+                    R$ 1.260,00
+                </strong>
+
+                <small id="expenseStatus">
+                    Acima da receita
+                </small>
+
+            </article>
+
+
+            <article class="stat glass">
+
+                <span>
+                    Resultado mensal
+                </span>
+
+                <strong id="result">
+                    −R$ 360,00
+                </strong>
+
+                <small>
+                    Receita − despesas
+                </small>
+
+            </article>
+
+
+            <article class="stat glass">
+
+                <span>
+                    Economia
+                </span>
+
+                <strong id="economy">
+                    R$ 0,00
+                </strong>
+
+                <small>
+                    Economia obtida com os cortes
+                </small>
+
+            </article>
+
         </section>
-      </div>
 
-      <section class="scenario glass">
-        <div class="scenario-controls">
-          <label for="savingRange">Aporte ou economia mensal</label>
-          <input id="savingRange" type="range" min="0" max="500" step="10" value="120" />
-        </div>
 
-        <div class="scenario-result">
-          <span>Valor selecionado</span>
-          <strong id="savingValue">R$ 120,00</strong>
-        </div>
+        <!-- EXTRATO + CATEGORIAS -->
 
-        <div class="scenario-result">
-          <span>Resultado</span>
-          <strong id="scenarioResult">+R$ 0,00</strong>
-        </div>
-      </section>
+        <section class="content-grid">
 
-      <section id="portfolioSection" class="portfolio glass hidden">
-        <div class="portfolio-heading">
-          <div>
-            <h3>Carteira fictícia</h3>
-            <p>
-              Uma simulação didática para mostrar como um planejamento financeiro mais equilibrado pode abrir espaço para investimentos e metas futuras.
-            </p>
-          </div>
-          <span class="simulation-badge">Simulação didática</span>
-        </div>
 
-        <div class="market-strip">
-          <div>
-            <span>Retorno</span>
-            <strong>+12,4%</strong>
-            <small>no período</small>
-          </div>
-          <div>
-            <span>Risco</span>
-            <strong>Moderado</strong>
-            <small>carteira equilibrada</small>
-          </div>
-          <div>
-            <span>Prazo</span>
-            <strong>12 meses</strong>
-            <small>horizonte</small>
-          </div>
-        </div>
+            <article class="panel glass">
 
-        <div class="portfolio-summary">
-          <div class="portfolio-total">
-            <span>Valor total investido</span>
-            <strong id="portfolioTotal">R$ 0,00</strong>
-            <small id="portfolioReturn">Crescimento simulado no período: +R$ 0,00</small>
-          </div>
-        </div>
+                <div class="panel-heading">
 
-        <div id="portfolioCards"></div>
-      </section>
+                    <div>
+
+                        <span class="eyebrow">
+                            EXTRATO
+                        </span>
+
+                        <h2>
+                            Movimentações
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <div id="transactions"></div>
+
+            </article>
+
+
+            <article class="panel glass">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            ORGANIZAÇÃO
+                        </span>
+
+                        <h2>
+                            Para onde vai o dinheiro?
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="categories"
+                    class="category-list"
+                ></div>
+
+
+                <div class="tip">
+
+                    <span>
+                        💡
+                    </span>
+
+                    <p id="financialTip"></p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- SIMULADOR -->
+
+        <section class="scenario glass">
+
+            <div>
+
+                <span class="eyebrow">
+                    SIMULADOR “E SE...?”
+                </span>
+
+                <h2>
+                    Teste uma decisão financeira
+                </h2>
+
+                <p>
+                    Escolha quanto Laura consegue economizar
+                    adicionalmente por mês.
+                </p>
+
+            </div>
+
+
+            <div class="scenario-controls">
+
+                <label for="savingRange">
+                    Economia adicional
+                </label>
+
+                <input
+                    id="savingRange"
+                    type="range"
+                    min="0"
+                    max="400"
+                    step="10"
+                    value="0"
+                >
+
+                <strong id="savingValue">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="scenario-result">
+
+                <span>
+                    Novo resultado
+                </span>
+
+                <strong id="scenarioResult">
+                    −R$ 360,00
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- CARTEIRA -->
+
+        <section
+            id="portfolioSection"
+            class="portfolio glass hidden"
+        >
+
+            <div class="portfolio-heading">
+
+                <div>
+
+                    <span class="eyebrow">
+                        OCTO STONKS • CARTEIRA
+                    </span>
+
+                    <h2>
+                        Carteira financeira da Laura
+                    </h2>
+
+                    <p>
+                        Depois de reorganizar o orçamento,
+                        Laura passa a acompanhar uma carteira
+                        fictícia para estudar diversificação,
+                        renda fixa e fundos imobiliários.
+                    </p>
+
+                </div>
+
+
+                <div class="simulation-badge">
+
+                    🟢 MODO SIMULAÇÃO
+
+                </div>
+
+            </div>
+
+
+            <!-- INDICADORES -->
+
+            <div class="market-strip">
+
+                <div>
+
+                    <span>
+                        Selic
+                    </span>
+
+                    <strong>
+                        13,75% a.a.
+                    </strong>
+
+                    <small>
+                        Referência: 25/10/2026
+                    </small>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        CDI
+                    </span>
+
+                    <strong>
+                        13,65% a.a.
+                    </strong>
+
+                    <small>
+                        Referência: 22/10/2026
+                    </small>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        IFIX
+                    </span>
+
+                    <strong>
+                        ≈ 3.991 pts
+                    </strong>
+
+                    <small>
+                        Referência: 23/10/2026
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- PATRIMÔNIO -->
+
+            <div class="portfolio-summary">
+
+                <div class="portfolio-total">
+
+                    <span>
+                        Patrimônio simulado
+                    </span>
+
+                    <strong id="portfolioTotal">
+                        R$ 1.200,00
+                    </strong>
+
+                    <small id="portfolioReturn">
+                        Crescimento simulado no período:
+                        +R$ 0,00
+                    </small>
+
+                </div>
+
+
+                <div class="allocation">
+
+                    <div class="allocation-bar">
+
+                        <span class="alloc-cdb"></span>
+
+                        <span class="alloc-fii"></span>
+
+                        <span class="alloc-reserve"></span>
+
+                    </div>
+
+
+                    <div class="legend">
+
+                        <span>
+                            🏦 CDB 50%
+                        </span>
+
+                        <span>
+                            🏢 FIIs 35%
+                        </span>
+
+                        <span>
+                            💧 Reserva 15%
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- INVESTIMENTOS -->
+
+            <div
+                id="portfolioCards"
+                class="portfolio-grid"
+            ></div>
+
+
+            <!-- AVISO EDUCACIONAL -->
+
+            <div class="portfolio-note">
+
+                <strong>
+                    📚 Nota para o trabalho:
+                </strong>
+
+                A carteira é uma construção fictícia para
+                demonstrar diversificação, juros e acompanhamento
+                de investimentos.
+
+                Como Laura tem 16 anos no cenário, o app não
+                representa uma recomendação para investimento real.
+
+            </div>
+
+
+            <!-- IA -->
+
+            <div class="ai-market">
+
+                <div class="ai-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <span class="eyebrow">
+                        MERCADO & IA
+                    </span>
+
+                    <h3>
+                        Inteligência artificial e mercado
+                    </h3>
+
+                    <p>
+                        Nvidia, Microsoft, Alphabet, Amazon e Meta
+                        investem em infraestrutura e serviços de IA.
+                        OpenAI, Anthropic, Mistral AI, Perplexity e
+                        Cohere representam a expansão do mercado de
+                        modelos e aplicações de inteligência artificial.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <small class="source-note">
+
+                Taxas de referência consultadas em outubro de 2026.
+                Valores de carteira, aportes e rentabilidade exibidos
+                pelo Octo Stonks são fictícios.
+
+            </small>
+
+        </section>
+
     </main>
 
+
+    <footer>
+
+        <strong>
+            Octo Stonks
+        </strong>
+
+        • Projeto acadêmico fictício
+
+        • Powered by Octo Studios
+
+        • 2026
+
+        <div class="project-details">
+            <p>Professora: Any Kelly | Série: 9º ano D</p>
+            <p>Grupo: Maria Clara Benjamim Amaral, Pedro Octávio e Leonardo Putz</p>
+        </div>
+
+    </footer>
+
+
     <script src="script.js"></script>
-  </body>
+
+</body>
 </html>
